@@ -7,9 +7,9 @@ import {
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -18,7 +18,6 @@ const Login = () => {
   const password = useRef(null);
   const [errorMessage, setErrorMessage] = useState();
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const toggleSignInForm = () => {
@@ -26,8 +25,6 @@ const Login = () => {
   };
 
   const handleButtonClick = () => {
-    console.log(email.current.value);
-    console.log(password.current.value);
 
     //Handle
     const message = checkValidData(
@@ -51,15 +48,12 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log(user);
 
           updateProfile(user, {
             displayName: fullName.current.value,
-            photoURL:
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPMoDAZbOAdKUDP3oa7JkeXK5H5beqi-bjZzRY7Q-bWw&s=10",
+            photoURL: USER_AVATAR,
           })
             .then((res) => {
-              console.log("user of registeration===", user);
               const { uid, email, displayName, photoURL } = auth.currentUser;
               dispatch(
                 addUser({
@@ -69,7 +63,6 @@ const Login = () => {
                   photoURL: photoURL,
                 }),
               );
-              navigate("/browse");
 
               //    const myForm = document.getElementById("myForm");
               //     myForm.reset();
@@ -96,9 +89,8 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log("user coming===", user);
 
-          navigate("/browse");
+
         })
         .catch((error) => {
           const errorCode = error.code;
