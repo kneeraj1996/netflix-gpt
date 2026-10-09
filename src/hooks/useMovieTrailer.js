@@ -16,9 +16,7 @@ import { addTrailerVideo } from "../utils/moviesSlice";
       API_OPTIONS,
     );
     const json = await data.json();
-    console.log('json coming neerajj==',json)
     const filterData = json.results.filter((video) => video.type == "Trailer");
-    console.log('filterData=====',filterData)
     const trailer = filterData.length ? filterData[0] : json.results[0];
     dispatch(addTrailerVideo(trailer.key));
   };
