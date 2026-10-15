@@ -9,7 +9,7 @@ export default function SecondaryContainer() {
   const horrorMovies = shuffleArray(movies.nowPlayingMovies);
   return (
     <div className='bg-black'> 
-      <div className='-mt-52 z-20 relative'>
+      <div className='mt-0 z-20 relative'>
           <MovieList title={'Now Playing'} movies={movies.nowPlayingMovies} />
           <MovieList title={'Trending'} movies={trendingMovies} />
           <MovieList title={'Popular'} movies={movies.popularMovies} />

@@ -37,6 +37,14 @@
 - GPT search bar
 - Added multi language
 - Integrate GPT Apis
+- GPT search open ai
+- GPT search api call
+- Memoization
+- fetch GPT movie suggestion from TMDB
+- GPT SLICE
+- reused movie list component to make movie suggestions container
+- memoization, adding .env file and to it gitignore
+- Made our site responsive
 
 # Features
 - Login/Sign up

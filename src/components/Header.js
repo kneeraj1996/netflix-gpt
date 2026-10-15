@@ -58,10 +58,10 @@ export default function () {
   };
 
   return (
-    <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between ">
+    <div className="absolute md:px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex flex-col md:flex-row justify-between md:justify-between items-center ">
       <img src={LOGO} alt="Logo" className="w-44" />
       {user != null ? (
-        <div className="flex h-12 justify-center text-white">
+        <div className="flex w-full md:w-auto h-12 px-5 md:px-0 justify-between md:justify-center text-white">
           <div className="flex text-white mr-2">
             {showGptSearch && (
               <select
@@ -92,7 +92,7 @@ export default function () {
           {user && user.photoURL ? (
             <img
               src={user && user.photoURL}
-              className="w-12 h-12  mr-2 rounded-md"
+              className="hidden md:inline-block w-12 h-12  mr-2 rounded-md"
             />
           ) : null}
           <button onClick={handleSignOut} className="font-bold">

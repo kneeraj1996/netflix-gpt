@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Login from "./Login";
 import Browse from "./Browse";
+import WatchVideo from "./WatchVideo";
 
 import {
   createBrowserRouter,
@@ -17,6 +18,10 @@ export default function Body() {
     {
       path: "/browse",
       element: <Browse />,
+    },
+     {
+      path: "/watchvideo/:id",
+      element: <WatchVideo />,
     },
   ]);
 
